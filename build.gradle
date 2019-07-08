@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'selenium-driver'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //Selenium
+    compile 'org.seleniumhq.selenium:selenium-java:3.+'
+    compile 'junit:junit:4.+'
+
+    //This is the TestNG test execution library that is better than JUnit
+    //Adding a + for a version number means get the latest number for that version.  So in this case get the latest 6.8.whatever deployment
+    compile group: 'org.testng', name: 'testng', version: '6.8.+'
+
+    //Better reporting for testng.  It outputs a nice html report
+    compile 'org.uncommons:reportng:1.1.4'
+}
