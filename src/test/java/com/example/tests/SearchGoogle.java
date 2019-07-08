@@ -1,6 +1,5 @@
-package selenium.driver;
+package com.example.tests;
 
-import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,12 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class JUnitTestCase extends TestCase {
+import static org.junit.Assert.fail;
 
-  public static final String WEBDRIVER_CHROME_DRIVER ="webdriver.chrome.driver";
-  public static final String WEBDRIVER_FIREFOX_DRIVER ="webdriver.firefox.marionette";
-  public static final String WEBDRIVER_IE_DRIVER ="webdriver.ie.driver";
-
+public class SearchGoogle {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,20 +19,19 @@ public class JUnitTestCase extends TestCase {
   @Before
   public void setUp() throws Exception {
     System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-    System.setProperty("webdriver.firefox.marionette", "drivers/chromedriver.exe");
-    System.setProperty("webdriver.ie.driver", "drivers/chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testUntitledTestCase() throws Exception {
+  public void testSearchGoogle() throws Exception {
     driver.get("https://www.google.com/");
+    driver.manage().window().maximize();
     driver.findElement(By.name("q")).clear();
     driver.findElement(By.name("q")).sendKeys("test");
-    driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-//    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Web results'])[1]/following::h3[1]")).click();
+//    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Remove'])[2]/following::span[1]")).click();
+//    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='People also search for'])[2]/following::h3[1]")).click();
   }
 
   @After

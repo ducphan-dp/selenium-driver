@@ -1,4 +1,4 @@
-package selenium.driver;
+package com.example.tests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
